@@ -1,0 +1,44 @@
+* {
+    box-sizing:
+    border-box;
+}
+#table{
+    box-sizing: content-box;
+    width: 900px;
+    height: 500px;
+    background-color: green;
+    border: solid 20px rgb(51, 41, 14);
+    border-radius: 10%;
+    padding: 50px 40px;
+}
+
+#messages {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 5px;
+    height: 2em;
+    color: white;
+} 
+.buttons{
+text-align: center;
+}
+
+.hand {
+    padding: 20px;
+    border-radius: 25px;
+    height: 100px;
+    background: #3db951;
+    margin-bottom: 20px;
+  }
+.hand img {
+    width: 65px;
+    height: 65px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+}
+#deal-button img {
+    width: 65px;
+    height: 65px;
+  
+}
