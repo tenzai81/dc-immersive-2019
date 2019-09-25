@@ -1,9 +1,4 @@
 
-// Deal new two cards to each player Player and Dealer when click on deal button
-
-function randomCard(deck){
-  return deck[Math.floor(Math.random()*deck.length)];
-}
 var deck =[{point: 13, suit: "hearts"}, {point: 13, suit: "diamonds"},{point: 13, suit: "clubs"},{point: 13, suit: "spade"},
 {point: 12, suit: "hearts"}, {point: 12, suit: "diamonds"},{point: 12, suit: "clubs"},{point: 12, suit: "spade"},
 {point: 11, suit: "hearts"}, {point: 11, suit: "diamonds"},{point: 11, suit: "clubs"},{point: 11, suit: "spade"}, 
@@ -17,13 +12,40 @@ var deck =[{point: 13, suit: "hearts"}, {point: 13, suit: "diamonds"},{point: 13
 {point: 3, suit: "hearts"}, {point: 3, suit: "diamonds"},{point: 3, suit: "clubs"},{point: 3, suit: "spade"},
 {point: 2, suit: "hearts"}, {point: 2, suit: "diamonds"},{point: 2, suit: "clubs"},{point: 2, suit: "spade"},
 {point: 1, suit: "hearts"}, {point: 1, suit: "diamonds"},{point: 1, suit: "clubs"},{point: 1, suit: "spade"}
-]
-document.getElementById('deal-button').addEventListener('click', randomCard(deck));
+];
+
+function randomCard(deck){
+  return deck[Math.floor(Math.random()*deck.length)];
+}
 let card = randomCard(deck)
-    document.getElementById('player-hand').innerHTML= cardImage(card);
-    document.getElementById('dealer-hand').innerHTML= cardImage(card);
-    document.getElementById('player-hand').innerHTML= cardImage(card);
-    document.getElementById('dealer-hand').innerHTML= cardImage(card);
+
+playerHand = []
+dealerHand = []
+function DealCards (deck, player) {
+  card = deck.pop();
+  playerHand.push(card);
+
+}
+document.getElementById('deal-button').addEventListener('click', function(){
+  DealCards(deck, dealerHand);
+  DealCards(deck, playerHand);
+  DealCards(deck, dealerHand);
+  DealCards(deck, dealerHand);
+  cardLink = cardImage(card)
+  document.getElementById('player-hand').innerHTML= '<img src="' + cardLink + '">'
+});  
+
+
+
+// Hit button
+
+// document.getElementById('hit-button').addEventListener('click', function(){
+//   cardLink = cardImage(card);  
+//   document.getElementById('player-hand').innerHTML 
+//   });
+// document.getElementById('dealer-hand').innerHTML= cardImage(card);
+    // document.getElementById('player-hand').innerHTML= cardImage(card);
+    // document.getElementById('dealer-hand').innerHTML= cardImage(card);
     // document.getElementById('player-hand').innerHTML='<img src="images/ace_of_hearts.png" alt="card1"><img src="images/king_of_clubs.png">';
 
 // Deal one more card to player when hit button is clicked
@@ -50,13 +72,14 @@ function cardImage(card){
 }
 
 
-
-
-// Display win or lose message
-// document.getElementById('stand-button').addEventListener('stand-button', showResults); 
-//   function showResults(){ 
-//     document.getElementById('messages').innerHTML=
-//     'You lose!!!'
-//     document.getElementById('messages').innerHTML=
-//     'You win!!!'
-  // }
+// // dealing card by injecting into DOM function
+// function dealCard(){
+//     card=deck.pop();
+//     deckArray.push(card)
+//     cardLink = cardImage(card);
+//     document.getElementById('deal-button').addEventListener('click', function(){
+//       document.getElementById("player-hand").innerHTML='<img src="' + cardLink + '">'
+//       document.getElementById("dealer-hand").innerHTML='<img src="' + cardLink + '">'
+//       document.getElementById("player-hand").innerHTML='<img src="' + cardLink + '">'
+//       document.getElementById("player-hand").innerHTML= '<img src="' + cardLink + '">'
+//     });
