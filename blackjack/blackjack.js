@@ -1,4 +1,4 @@
-
+// Deck of cards
 var deck =[{point: 13, suit: "hearts"}, {point: 13, suit: "diamonds"},{point: 13, suit: "clubs"},{point: 13, suit: "spade"},
 {point: 12, suit: "hearts"}, {point: 12, suit: "diamonds"},{point: 12, suit: "clubs"},{point: 12, suit: "spade"},
 {point: 11, suit: "hearts"}, {point: 11, suit: "diamonds"},{point: 11, suit: "clubs"},{point: 11, suit: "spade"}, 
@@ -13,26 +13,27 @@ var deck =[{point: 13, suit: "hearts"}, {point: 13, suit: "diamonds"},{point: 13
 {point: 2, suit: "hearts"}, {point: 2, suit: "diamonds"},{point: 2, suit: "clubs"},{point: 2, suit: "spade"},
 {point: 1, suit: "hearts"}, {point: 1, suit: "diamonds"},{point: 1, suit: "clubs"},{point: 1, suit: "spade"}
 ];
-
+// randomized deck
 function randomCard(deck){
   return deck[Math.floor(Math.random()*deck.length)];
 }
 let card = randomCard(deck)
-
+// Selecting card from deck and putting it into empty array for dealer and player 
 playerHand = []
 dealerHand = []
-function DealCards (deck, player) {
-  card = deck.pop();
-  playerHand.push(card);
-
+function DealCards(deck){
+  playerHand.push(randomCard(deck));
+  dealerHand.push(randomCard(deck));
 }
+// injecting cards into DOM 
 document.getElementById('deal-button').addEventListener('click', function(){
-  DealCards(deck, dealerHand);
-  DealCards(deck, playerHand);
-  DealCards(deck, dealerHand);
-  DealCards(deck, dealerHand);
+  DealCards(playerHand);
+  // DealCards(deck, dealerHand);
+  // DealCards(deck, playerHand);
+  // DealCards(deck, dealerHand);
   cardLink = cardImage(card)
-  document.getElementById('player-hand').innerHTML= '<img src="' + cardLink + '">'
+  // document.getElementById('player-hand').innerHTML= '<img src="' + cardLink + '">'
+  // document.getElementById('dealer-hand').innerHTML= '<img src="' + cardLink + '">'
 });  
 
 
@@ -72,14 +73,3 @@ function cardImage(card){
 }
 
 
-// // dealing card by injecting into DOM function
-// function dealCard(){
-//     card=deck.pop();
-//     deckArray.push(card)
-//     cardLink = cardImage(card);
-//     document.getElementById('deal-button').addEventListener('click', function(){
-//       document.getElementById("player-hand").innerHTML='<img src="' + cardLink + '">'
-//       document.getElementById("dealer-hand").innerHTML='<img src="' + cardLink + '">'
-//       document.getElementById("player-hand").innerHTML='<img src="' + cardLink + '">'
-//       document.getElementById("player-hand").innerHTML= '<img src="' + cardLink + '">'
-//     });
